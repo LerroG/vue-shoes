@@ -1,5 +1,6 @@
 <script setup lang="ts">
 	import DefaultHeader from '@/components/layoutDefault/DefaultHeader.vue';
+
 </script>
 
 <template>

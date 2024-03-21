@@ -1,5 +1,10 @@
 <script setup lang="ts">
 	import CardList from '@/components/CardList.vue';
+	import { useProductStore } from '@/stores/productsStore';
+
+	const productStore = useProductStore();
+	productStore.getProducts()
+
 </script>
 
 <template>
@@ -14,7 +19,10 @@
 			</select>
 
 			<div class="relative">
-				<img class="absolute left-4 top-3" src="/search.svg" />
+				<img
+					class="absolute left-4 top-3"
+					src="/search.svg"
+				/>
 				<input
 					class="border rounded-md py-2 pl-11 pr-4 outline-none focus:border-gray-400"
 					type="text"

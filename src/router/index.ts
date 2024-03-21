@@ -10,6 +10,11 @@ const router = createRouter({
 			name: RouteNamesEnum.home,
 			component: () => import('@/pages/HomePage.vue'),
 		},
+		{
+			path: '/favorites',
+			name: RouteNamesEnum.favorites,
+			component: () => import('@/pages/FavoritesPage.vue'),
+		},
 	],
 });
 
