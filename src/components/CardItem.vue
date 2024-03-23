@@ -1,17 +1,39 @@
 <script setup lang="ts">
-import type { IProduct } from '@/types/product.types';
+	import type { IProduct } from '@/types/product.types';
+	import { useFavoriteStore } from '@/stores/favoriteStore';
+	import { computed } from 'vue';
+	const favoriteStore = useFavoriteStore();
 
-defineProps<{
-  product: IProduct
-}>()
+	const props = defineProps<{
+		product: IProduct;
+	}>();
+
+	const isFavorite = computed(() => {
+		return favoriteStore.favoriteProducts.some(
+			(el) => el.id === props.product.id
+		);
+	});
+
+	const onClickFavorite = () => {
+		favoriteStore.toggleToFavorite(props.product);
+	};
 </script>
 
 <template>
 	<div
 		class="relative bg-white border border-slate-100 rounded-3xl p-8 cursor-pointer transition hover:-translate-y-2 hover:shadow-xl"
 	>
+		<img
+			:src="!isFavorite ? '/like-1.svg' : '/like-2.svg'"
+			alt="Like"
+			class="absolute top-6 left-6 hover:fill-black"
+			@click="onClickFavorite"
+		/>
 
-  <img :src="product.imageUrl" :alt="product.title" />
+		<img
+			:src="product.imageUrl"
+			:alt="product.title"
+		/>
 
 		<p class="mt-2">{{ product.title }}</p>
 

@@ -1,10 +1,9 @@
 <script setup lang="ts">
 	import CardList from '@/components/CardList.vue';
-	import { useProductStore } from '@/stores/productsStore';
+	import { useProductStore } from '@/stores/productStore';
 
 	const productStore = useProductStore();
-	productStore.getProducts()
-
+	productStore.getProducts();
 </script>
 
 <template>
@@ -33,6 +32,6 @@
 	</div>
 
 	<div class="mt-10">
-		<CardList />
+		<CardList :items="productStore.products" type="home" />
 	</div>
 </template>

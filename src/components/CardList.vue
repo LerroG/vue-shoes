@@ -1,8 +1,11 @@
 <script setup lang="ts">
+	import type { IProduct } from '@/types/product.types';
 	import CardItem from './CardItem.vue';
-	import { useProductStore } from '@/stores/productsStore';
 
-	const productStore = useProductStore();
+	defineProps<{
+		items: IProduct[];
+		type: 'home' | 'favorite';
+	}>();
 </script>
 
 <template>
@@ -11,9 +14,9 @@
 		v-auto-animate
 	>
 		<CardItem
-			v-for="product in productStore.products"
+			v-for="product in items"
 			:key="product.id"
-      :product="product"
+			:product="product"
 		/>
 	</div>
 </template>

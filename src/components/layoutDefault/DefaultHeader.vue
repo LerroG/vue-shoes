@@ -1,4 +1,5 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+</script>
 
 <template>
 	<header class="flex justify-between border-b border-slate-200 px-10 py-8">
