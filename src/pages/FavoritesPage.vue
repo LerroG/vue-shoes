@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import CardList from '@/components/CardList.vue';
+	import CardList from '@/components/cards/CardList.vue';
 	import { useFavoriteStore } from '@/stores/favoriteStore';
 
 	const favoriteStore = useFavoriteStore();

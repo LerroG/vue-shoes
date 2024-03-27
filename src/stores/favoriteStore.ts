@@ -1,10 +1,11 @@
 import $api from '@/libs/axios';
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
+import type { IFavorite } from '@/types/favorite.types';
 import type { IProduct } from '@/types/product.types';
 
 export const useFavoriteStore = defineStore('favoriteStore', () => {
-	const favorites = ref<{ id: number; product: IProduct }[]>([]);
+	const favorites = ref<IFavorite[]>([]);
 
 	const favoriteProducts = computed(() => {
 		return favorites.value.map((el) => el.product);
@@ -32,12 +33,9 @@ export const useFavoriteStore = defineStore('favoriteStore', () => {
 
 	const getFavorites = async () => {
 		try {
-			const res = await $api.get('/favorites?_relations=products');
-
-			// const items = res.data.map((el) => el.product);
+			const res = await $api.get<IFavorite[]>('/favorites?_relations=products');
 
 			favorites.value = res.data;
-			// console.log(favorites);
 		} catch (error) {
 			console.log(error);
 		}

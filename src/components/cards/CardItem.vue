@@ -2,7 +2,10 @@
 	import type { IProduct } from '@/types/product.types';
 	import { useFavoriteStore } from '@/stores/favoriteStore';
 	import { computed } from 'vue';
+	import { useCartStore } from '@/stores/cartStore';
+
 	const favoriteStore = useFavoriteStore();
+	const cartStore = useCartStore();
 
 	const props = defineProps<{
 		product: IProduct;
@@ -14,8 +17,16 @@
 		);
 	});
 
+	const isExistInCart = computed(() => {
+		return cartStore.cartItems.some((el) => el.id === props.product.id);
+	});
+
 	const onClickFavorite = () => {
 		favoriteStore.toggleToFavorite(props.product);
+	};
+
+	const onClickToggleToCart = () => {
+		cartStore.toggleToCart(props.product);
 	};
 </script>
 
@@ -42,6 +53,12 @@
 				<span class="text-slate-400">Цена:</span>
 				<b>{{ product.price }} руб.</b>
 			</div>
+
+			<img
+				@click="onClickToggleToCart"
+				:src="!isExistInCart ? '/plus.svg' : '/checked.svg'"
+				alt="Plus"
+			/>
 		</div>
 	</div>
 </template>

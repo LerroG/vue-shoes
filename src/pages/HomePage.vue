@@ -1,9 +1,9 @@
 <script setup lang="ts">
-	import CardList from '@/components/CardList.vue';
+	import CardList from '@/components/cards/CardList.vue';
 	import { useProductStore } from '@/stores/productStore';
 
 	const productStore = useProductStore();
-	productStore.getProducts();
+	// productStore.getProducts();
 </script>
 
 <template>
@@ -17,11 +17,8 @@
 				<option value="-price">По цене (дорогие)</option>
 			</select>
 
-			<div class="relative">
-				<img
-					class="absolute left-4 top-3"
-					src="/search.svg"
-				/>
+			<div class="flex items-center">
+				<img src="/search.svg" />
 				<input
 					class="border rounded-md py-2 pl-11 pr-4 outline-none focus:border-gray-400"
 					type="text"
@@ -32,6 +29,9 @@
 	</div>
 
 	<div class="mt-10">
-		<CardList :items="productStore.products" type="home" />
+		<CardList
+			:items="productStore.products"
+			type="home"
+		/>
 	</div>
 </template>
