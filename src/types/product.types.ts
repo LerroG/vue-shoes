@@ -4,3 +4,8 @@ export interface IProduct {
 	price: number;
 	imageUrl: string;
 }
+
+export interface ISearchAndSort {
+	sortBy: string;
+	title?: string;
+}
