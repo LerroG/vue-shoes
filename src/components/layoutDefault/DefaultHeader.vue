@@ -1,7 +1,9 @@
 <script setup lang="ts">
+	import { useAuthStore } from '@/stores/authStore';
 	import { useCartStore } from '@/stores/cartStore';
 
 	const cartStore = useCartStore();
+	const authStore = useAuthStore();
 </script>
 
 <template>
@@ -51,7 +53,18 @@
 					src="/profile.svg"
 					alt="Cart"
 				/>
-				<span>Профиль</span>
+				<button
+					@click="authStore.logout()"
+					v-if="authStore.isAuth"
+				>
+					Выйти
+				</button>
+				<RouterLink
+					to="/auth"
+					v-else
+				>
+					<button>Войти</button>
+				</RouterLink>
 			</li>
 		</ul>
 	</header>

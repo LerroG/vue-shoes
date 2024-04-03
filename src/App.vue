@@ -5,9 +5,7 @@
 
 <template>
 	<AppLayout>
-		<div class="p-8">
-			<RouterView />
-		</div>
+		<RouterView />
 	</AppLayout>
 </template>
 

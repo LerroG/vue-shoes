@@ -58,21 +58,21 @@
 <style scoped>
 	.cart-enter-active,
 	.cart-leave-active {
-		transition: all 0.3s ease;
+		@apply transition-all duration-300 ease-out;
 	}
 
 	.cart-enter-from,
 	.cart-leave-to {
-		transform: translateX(100%);
+		@apply translate-x-full;
 	}
 
 	.cartbg-enter-active,
 	.cartbg-leave-active {
-		transition: all 0.3s ease;
+		@apply transition-all duration-300 ease-out;
 	}
 
 	.cartbg-enter-from,
 	.cartbg-leave-to {
-		opacity: 0;
+		@apply opacity-0;
 	}
 </style>
