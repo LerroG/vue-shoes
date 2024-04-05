@@ -16,7 +16,6 @@ export const useAuthStore = defineStore('authStore', () => {
 			localStorage.setItem('token', res.data.token);
 			isAuth.value = true;
 			user.value = res.data.data;
-			console.log(res.data)
 
 			if (router.options.history.state.back) router.back();
 
