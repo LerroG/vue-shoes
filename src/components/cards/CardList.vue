@@ -10,7 +10,7 @@
 
 <template>
 	<div
-		class="grid grid-cols-4 gap-5"
+		class="grid grid-cols-autofit gap-5"
 		v-auto-animate
 	>
 		<CardItem

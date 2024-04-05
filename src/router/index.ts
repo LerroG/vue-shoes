@@ -28,8 +28,5 @@ const router = createRouter({
 });
 
 router.beforeEach(loadLayoutMiddleware);
-//  const history  = router.options.history
-
-//  console.log(history)
 
 export default router;

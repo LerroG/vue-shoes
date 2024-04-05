@@ -4,7 +4,7 @@
 	import debounce from 'lodash.debounce';
 
 	const productStore = useProductStore();
-	// productStore.getProducts();
+	productStore.getProducts();
 
 	const onChangeSearchInput = debounce((event: Event) => {
 		productStore.filters.searchQuery = (event.target as HTMLInputElement).value;
@@ -31,10 +31,10 @@
 </script>
 
 <template>
-	<div class="flex justify-between items-center">
-		<h2 class="text-3xl font-bold mb-8">Вся обувь</h2>
+	<div class="flex justify-between items-center max-md:flex-col max-md:gap-4">
+		<div class="text-3xl font-bold mr-4">Вся обувь</div>
 
-		<div class="flex gap-4">
+		<div class="flex gap-4 max-sm:flex-col-reverse">
 			<select
 				@change="onChangeSelect"
 				class="py-2 px-3 border rounded-md outline-none hover:cursor-pointer"

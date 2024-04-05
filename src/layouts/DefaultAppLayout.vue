@@ -6,19 +6,19 @@
 	import { useAuthStore } from '@/stores/authStore';
 
 	const cartStore = useCartStore();
-	// cartStore.getCart();
+	cartStore.getCart();
 	const favoriteStore = useFavoriteStore();
-	// favoriteStore.getFavorites();
+	favoriteStore.getFavorites();
 	const authStore = useAuthStore();
 
-	if (localStorage.getItem('token')) authStore.checkAuth();
+	if (localStorage.getItem('token') && !authStore.isAuth) authStore.checkAuth();
 </script>
 
 <template>
 	<CartWrapper />
 	<div class="bg-white w-4/5 m-auto rounded-xl shadow-xl mt-14">
 		<DefaultHeader />
-		<main class="p-8">
+		<main class="p-8 max-lg:p-5">
 			<slot />
 		</main>
 	</div>

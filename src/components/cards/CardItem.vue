@@ -32,33 +32,36 @@
 
 <template>
 	<div
-		class="relative bg-white border border-slate-100 rounded-3xl p-8 cursor-pointer transition hover:-translate-y-2 hover:shadow-xl"
+		class="relative bg-white border border-slate-100 rounded-3xl p-6 cursor-pointer transition hover:-translate-y-2 hover:shadow-xl"
 	>
 		<img
 			:src="!isFavorite ? '/like-1.svg' : '/like-2.svg'"
 			alt="Like"
-			class="absolute top-6 left-6 hover:fill-black"
+			class="absolute top-6 left-6 hover:fill-red"
 			@click="onClickFavorite"
 		/>
-
-		<img
-			:src="product.imageUrl"
-			:alt="product.title"
-		/>
-
-		<p class="mt-2">{{ product.title }}</p>
-
-		<div class="flex justify-between mt-5">
-			<div class="flex flex-col">
-				<span class="text-slate-400">Цена:</span>
-				<b>{{ product.price }} руб.</b>
-			</div>
-
+		<div class="flex justify-center h-3/5">
 			<img
-				@click="onClickToggleToCart"
-				:src="!isExistInCart ? '/plus.svg' : '/checked.svg'"
-				alt="Plus"
+				:src="product.imageUrl"
+				:alt="product.title"
 			/>
+		</div>
+
+		<div class="flex flex-col justify-between mt-4 h-2/5">
+			<div>{{ product.title }}</div>
+
+			<div class="flex justify-between mb-4">
+				<div class="flex flex-col">
+					<span class="text-slate-400">Цена:</span>
+					<b>{{ product.price }} руб.</b>
+				</div>
+
+				<img
+					@click="onClickToggleToCart"
+					:src="!isExistInCart ? '/plus.svg' : '/checked.svg'"
+					alt="Plus"
+				/>
+			</div>
 		</div>
 	</div>
 </template>

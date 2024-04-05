@@ -7,22 +7,24 @@
 </script>
 
 <template>
-	<header class="flex justify-between border-b border-slate-200 px-10 py-8">
+	<header
+		class="flex justify-between border-b border-slate-200 px-10 py-8 max-lg:p-5"
+	>
 		<RouterLink to="/">
 			<div class="flex items-center gap-4">
 				<img
 					src="/logo.png"
 					alt="Logo"
-					class="w-10"
+					class="w-10 max-md:w-12"
 				/>
-				<div>
+				<div class="max-md:hidden">
 					<h2 class="text-xl font-bold uppercase">Vue Shoes</h2>
-					<p class="text-slate-400">Магазин лучшей обуви</p>
+					<p class="text-slate-400 max-lg:hidden">Магазин лучшей обуви</p>
 				</div>
 			</div>
 		</RouterLink>
 
-		<ul class="flex items-center gap-10">
+		<ul class="flex items-center gap-4 md:gap-10">
 			<li
 				@click="cartStore.toggleCartVisible"
 				class="flex items-center cursor-pointer gap-3 text-gray-500 hover:text-black"
@@ -30,8 +32,9 @@
 				<img
 					src="/cart.svg"
 					alt="Cart"
+					class="w-7"
 				/>
-				<b>{{ cartStore.cartTotalPrice }} руб.</b>
+				<b class="max-sm:hidden">{{ cartStore.cartTotalPrice }} руб.</b>
 			</li>
 
 			<RouterLink to="/favorites">
@@ -41,8 +44,9 @@
 					<img
 						src="/heart.svg"
 						alt="Cart"
+						class="w-7"
 					/>
-					<span>Закладки</span>
+					<span class="max-sm:hidden">Закладки</span>
 				</li>
 			</RouterLink>
 
@@ -50,14 +54,15 @@
 				class="flex items-center cursor-pointer gap-3 text-gray-500 hover:text-black"
 			>
 				<img
-					src="/profile.svg"
-					alt="Cart"
+					:src="authStore.isAuth ? '/logout.svg' : '/profile.svg'"
+					alt="Profile"
+					class="w-7"
 				/>
 				<button
 					@click="authStore.logout()"
 					v-if="authStore.isAuth"
 				>
-					Выйти
+					<span class="max-sm:hidden">Выйти</span>
 				</button>
 				<RouterLink
 					to="/auth"

@@ -17,7 +17,7 @@
 	<Transition name="cart">
 		<div
 			v-if="cartStore.isCartVisible"
-			class="bg-white w-96 h-full fixed right-0 top-0 z-40 p-8"
+			class="bg-white max-sm:w-full w-96 h-full fixed right-0 top-0 z-40 p-8"
 		>
 			<CartHeader />
 
