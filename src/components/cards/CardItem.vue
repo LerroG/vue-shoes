@@ -37,7 +37,7 @@
 		<img
 			:src="!isFavorite ? '/like-1.svg' : '/like-2.svg'"
 			alt="Like"
-			class="absolute top-6 left-6 hover:fill-red"
+			class="absolute top-6 left-6"
 			@click="onClickFavorite"
 		/>
 		<div class="flex justify-center h-3/5">
