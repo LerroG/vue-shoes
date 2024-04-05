@@ -50,25 +50,30 @@
 				</li>
 			</RouterLink>
 
-			<li
-				class="flex items-center cursor-pointer gap-3 text-gray-500 hover:text-black"
-			>
-				<img
-					:src="authStore.isAuth ? '/logout.svg' : '/profile.svg'"
-					alt="Profile"
-					class="w-7"
-				/>
+			<li class="cursor-pointer text-gray-500 hover:text-black">
 				<button
 					@click="authStore.logout()"
 					v-if="authStore.isAuth"
+					class="flex items-center gap-3"
 				>
+					<img
+						src="/logout.svg"
+						alt="Profile"
+						class="w-7"
+					/>
 					<span class="max-sm:hidden">Выйти</span>
 				</button>
 				<RouterLink
 					to="/auth"
 					v-else
 				>
-					<button>Войти</button>
+					<button class="flex items-center gap-3">
+						<img
+							src="/profile.svg"
+							alt="Profile"
+							class="w-7"
+						/><span class="max-sm:hidden">Войти</span>
+					</button>
 				</RouterLink>
 			</li>
 		</ul>
